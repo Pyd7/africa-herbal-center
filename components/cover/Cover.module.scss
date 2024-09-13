@@ -1,0 +1,42 @@
+$height-cover-desktop: 500px;
+$height-cover-phone: 500px;
+$height-cover-tablet: 400px;
+$cover-backgroundColor: #a6c681;// #4d8d03;
+$cover-caption-text-color: #274702;
+
+.cover{
+    margin-top: 5px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    height: $height-cover-desktop;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.image{
+    height: $height-cover-desktop;
+    width: 100%;
+    object-fit: cover;
+}
+
+@media (max-width: 1024px) {
+    .cover{
+        width: 95%;
+    }
+}
+
+@media (max-width: 599px){
+    .cover{
+        margin-top: 0;
+        width: 100%;
+        height: auto;
+        border-radius: 0;
+    }    
+
+    .image{
+        height: auto;
+        width: 100%;
+        object-fit: cover;
+    }
+}

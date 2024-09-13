@@ -1,0 +1,26 @@
+/* @import "~bootstrap/scss/bootstrap";
+ */
+ $container-background: #edf5ef;
+
+ .container{
+     background-color: $container-background;
+ }
+
+ .footerText {
+     margin-right: auto;
+     font-size: 17px;
+ }
+
+ .author{
+     font-size: 14px;
+ }
+
+ @media (max-width: 599px){
+    .footerText {
+        font-size: 14px;
+    }
+   
+    .author{
+        font-size: 12px;
+    }
+ }

@@ -1,0 +1,50 @@
+/* @import "~bootstrap/scss/bootstrap";
+ */
+
+ $container-background: #edf5ef;
+ $green-title: #668C4A;//#3EB595;
+ $green-selected-back-item: #d8f0ea;
+ $green-selected-item: #2b7f68;
+ $green-hover-item: #3eb595;
+
+ .container{
+     background-color: $container-background;
+ }
+
+ .title{
+     color: $green-title;
+     font-weight: bold;
+ }
+
+ .basket{
+     font-size: 19px;
+     margin-left: 5px;
+ }
+
+ .link:hover{
+     color: $green-hover-item;
+     font-weight: bold;
+ }
+
+.item{
+    border-radius: 5px;
+}
+
+.item:global(.active){
+    font-weight: bold;
+    background-color: $green-selected-back-item;
+}
+
+.item:global(.active) > span{
+    color: $green-selected-item;
+}
+
+ @media (max-width: 599px) {
+    .title{
+        font-size: 17px;
+    }
+
+    .basket{
+        font-size: 17px;
+    }
+ }

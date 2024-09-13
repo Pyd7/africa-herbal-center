@@ -1,0 +1,123 @@
+$height-carousel-desktop: 600px;
+$height-carousel-phone: 500px;
+$height-carousel-item-phone: 500px;
+$height-carousel-tablet: 400px;
+$carousel-backgroundColor: #a6c681;// #4d8d03;
+$carousel-caption-text-color: #274702;
+
+.carousel{
+    height: $height-carousel-desktop;
+}
+
+.cItem{
+    width: 100%;
+    height: $height-carousel-desktop;
+    //background-color: $carousel-backgroundColor;
+    
+    background-image: url("https://res.cloudinary.com/ignitouch/image/upload/v1625972790/AHCenter/back7-blur_bpclma.jpg");
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.innerItem{
+    display: flex;
+    justify-content: center;
+    
+}
+
+.carouselImage{
+    width: auto;
+    height: $height-carousel-desktop;
+    //object-fit: cover;
+}
+
+.carouselCaption{
+    background-color: rgb(74, 97, 48, 0.7);
+    width: 45%;
+    padding: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 5px;
+    height: $height-carousel-desktop * 0.4;
+    padding: 15px;
+}
+
+.captionTitle{
+    text-align: center;
+    width: 100%;
+    overflow: hidden;
+   text-overflow: ellipsis;
+   display: -webkit-box;
+   -webkit-line-clamp: 2; /* number of lines to show */
+   -webkit-box-orient: vertical;
+}
+
+.captionText{
+    text-align: center;
+    width: 100%;
+
+    overflow: hidden;
+   text-overflow: ellipsis;
+   display: -webkit-box;
+   -webkit-line-clamp: 5; /* number of lines to show */
+   -webkit-box-orient: vertical;
+}
+
+@media (max-width: 599px){
+    .carousel{
+        height: $height-carousel-item-phone;
+    }
+    
+    .cItem{
+        height: $height-carousel-item-phone;
+        background-color: $carousel-backgroundColor;
+        background-image: none;
+    }
+
+    .carouselImage{
+        width: 100%;
+        height: $height-carousel-item-phone*0.70;
+        object-fit: center;
+    }
+
+    .carouselCaption{
+        position: absolute;
+        left: 0;
+        right: 0;
+        width: 100%;
+        height: $height-carousel-item-phone*0.26;//auto;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 20px;
+        padding-right: 20px;
+        background-color: rgb(0, 0, 0, 0);
+        margin-left: 0;
+        margin-right: 0;
+        color: $carousel-caption-text-color;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+
+    .captionTitle{
+        margin-top: 0;
+        font-size: 25px;
+        
+        overflow: hidden;
+       text-overflow: ellipsis;
+       display: -webkit-box;
+       -webkit-line-clamp: 1; /* number of lines to show */
+       -webkit-box-orient: vertical;
+    }
+
+    .captionText{
+        overflow: hidden;
+       text-overflow: ellipsis;
+       display: -webkit-box;
+       -webkit-line-clamp: 2; /* number of lines to show */
+       -webkit-box-orient: vertical;
+    }
+}

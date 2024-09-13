@@ -1,0 +1,130 @@
+$height-section-content-desktop: 500px;
+$height-section-content-phone: 300px;
+$height-section-content-tablet: 350px;
+$section-margin-top-desktop: 50px;
+$section-margin-top-mobile: 20px;
+$info-column-width: 45%;
+$info-column-width-mobile: 100%;
+
+$section-title-font-size-moblie: 27px;
+$info-text-fontsize: 30px;
+$info-text-fontsize-mobile: 20px;
+
+$carousel-backgroundColor: #a6c681;// #4d8d03;
+$carousel-caption-text-color: #274702;
+$green-back-info: #d8f0ea;
+
+.section{
+    width: 80%;
+    margin-top: $section-margin-top-desktop;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.title{
+    text-align: center;
+    color:$carousel-caption-text-color;
+    margin-bottom: 10px;
+    font-weight: 300;
+}
+
+.container{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    height: $height-section-content-desktop;
+}
+
+.PresentationPicture{
+    background-color: $green-back-info;
+    height: 100%;
+    width: $info-column-width;
+    margin-right: 10px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.PresentationText{
+    background-color: $green-back-info;
+    height: 100%;
+    width: $info-column-width;
+    border-radius: 10px;
+    
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.InfoText{
+    font-size: $info-text-fontsize;
+    height:70%;
+    width: 95%;
+    font-weight: 200;
+    overflow-wrap: anywhere;
+    margin-top: auto;
+    margin-bottom: auto;
+    
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 10;
+    -webkit-box-orient: vertical;  
+    overflow: hidden;
+}
+
+@media (max-width: 1024px){
+    .section{
+        width: 90%;
+    }
+
+    .container{
+        height: $height-section-content-tablet;
+        
+    }
+
+    .InfoText{
+        height: 85%;
+        font-size: $info-text-fontsize-mobile;
+    }
+}
+
+@media (max-width: 599px){
+    .section{
+        width: 100%;
+        margin-top: $section-margin-top-mobile;
+    }
+
+    .container{
+        height: auto;
+    }
+
+    .title{
+        font-size: $section-title-font-size-moblie;
+        margin-bottom: 10px;
+    }
+
+    .PresentationPicture{
+        height: $height-section-content-phone;
+        width: $info-column-width-mobile;
+        border-radius: 0;
+        margin: 0;
+    }
+    
+    .PresentationText{
+        height: $height-section-content-phone;
+        width: $info-column-width-mobile;
+        border-radius: 0;
+        margin: 0;
+    }
+
+    .InfoText{
+        font-size: $info-text-fontsize-mobile;
+        height: 90%;
+        display: -webkit-box;
+        -webkit-line-clamp: 8;
+        -webkit-box-orient: vertical;  
+        overflow: hidden;
+    }
+}
