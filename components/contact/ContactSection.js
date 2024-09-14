@@ -35,7 +35,7 @@ export default function ContactBlock() {
         }
     }
 
-    async function sendMessage(event){
+    async function sendMessage(event) {
         event.preventDefault();
         const form = event.currentTarget;
         var validForm = true;
@@ -44,33 +44,34 @@ export default function ContactBlock() {
           event.stopPropagation();
           validForm = false;
         }
-  
+    
         setValidated(true);
         if (!validForm) {
           return;
         }
-        setshowConfirmation(true)
-
-        /* const data1 = {test: "submission"};
-        console.log('sending client message');
-        const response = await fetch('/api/hello', {
-          method: "POST",
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(data),
-        });
-        
-        var result = await response.json();
-        console.log(result);
-
-        if (!response.ok) {
-          setError(response.statusText);
-          console.log(response.statusText);
+    
+        try {
+          const response = await fetch('/api/sendEmail', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data), // Sending the form data to the API
+          });
+    
+          if (response.ok) {
+            setshowConfirmation(true); // Show confirmation message
+          } else {
+            const errorResponse = await response.json();
+            setError(errorResponse.error);
+            console.error('Error sending message:', errorResponse.error);
+          }
+        } catch (error) {
+          setError('Error sending message');
+          console.error('Error sending message:', error);
         }
-        else{
-          setshowConfirmation(true)
-        }  */
-           
     }
+    
 
     return(
         <div className={styles.container}>
@@ -90,9 +91,9 @@ export default function ContactBlock() {
                 <Form.Group className="mb-3">
                     <Form.Label className={styles.label}>Email</Form.Label>
                     <FormControl
-                    placeholder="Email"
+                    placeholder="user@example.com"
                     aria-label="Email"
-                    id="email" defaultValue="username@example.com" onChange={onChange} 
+                    id="email" onChange={onChange} 
                     />
                 </Form.Group>
                 <Form.Group className="mb-3">
