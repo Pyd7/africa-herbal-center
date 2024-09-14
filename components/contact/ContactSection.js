@@ -11,7 +11,7 @@ export default function ContactBlock() {
     const [data, setData] = useState({
       name: "",
       phone: "",
-      email: "username@example.com",
+      email: "",
       subject: "renseignement",
       message: "",
       ctype: "commande",
@@ -61,6 +61,17 @@ export default function ContactBlock() {
     
           if (response.ok) {
             setshowConfirmation(true); // Show confirmation message
+
+            // Reset the form fields by clearing the `data` state
+            setData({
+              name: "",
+              phone: "",
+              email: "", // or your default value
+              subject: "renseignement",      // or your default value
+              message: "",
+              ctype: "commande"             // or your default value
+            });
+            setValidated(false); 
           } else {
             const errorResponse = await response.json();
             setError(errorResponse.error);
@@ -83,6 +94,8 @@ export default function ContactBlock() {
                     placeholder="Nom & Prenoms"
                     aria-label="nom"
                     id="name" required onChange={onChange} 
+                    value={data.name}
+                    maxLength={50}
                     />
                     <Form.Control.Feedback type="invalid">
                     Entrer vos Nom et Prenoms
@@ -94,6 +107,8 @@ export default function ContactBlock() {
                     placeholder="user@example.com"
                     aria-label="Email"
                     id="email" onChange={onChange} 
+                    value={data.email}
+                    maxLength={50}
                     />
                 </Form.Group>
                 <Form.Group className="mb-3">
@@ -102,6 +117,8 @@ export default function ContactBlock() {
                     placeholder="Telephone"
                     aria-label="telephone"
                     id="phone" required onChange={onChange} 
+                    value={data.phone}
+                    maxLength={15}
                     />
                     <Form.Control.Feedback type="invalid">
                     Entrer un numero de telephone
@@ -125,11 +142,14 @@ export default function ContactBlock() {
                     placeholder="L'objet de votre message"
                     aria-label="Objet"
                     id = "subject" defaultValue="Renseignement" onChange={onChange}
+                    value={data.subject}
+                    maxLength={50}
                     />
                 </Form.Group>
                 <Form.Group >
                     <Form.Label className={styles.label}>Méssage</Form.Label>
-                    <Form.Control as="textarea" rows={3} id="message"  required onChange={onChange} />
+                    <Form.Control as="textarea" rows={3} id="message"  required onChange={onChange} value={data.message}
+                    maxLength={350} />
                     <Form.Control.Feedback type="invalid">
                     Entrer un méssage
                     </Form.Control.Feedback>
@@ -139,9 +159,9 @@ export default function ContactBlock() {
                 </Button>
                 {showConfirmation && 
                     <Alert variant="success" onClose={() => setshowConfirmation(false)} dismissible autoFocus style={{marginTop: '10px', textAlign: 'center'}}>
-                        <Alert.Heading>Votre Message a bien ete envoyé. <br />Nous vous contacterons bientot sur le {data.phone} ou via {data.email}.</Alert.Heading>
+                        <Alert.Heading>Votre Message a bien ete envoyé. <br />Nous vous contacterons bientot sur le numero de telephone et/ou e-mail fournis. Merci</Alert.Heading>
                         <Link href="/">
-                            <p style={{cursor: 'pointer', textDecoration: 'underline'}}>Continueer Votre Visite &#62;</p>
+                            <p style={{cursor: 'pointer', textDecoration: 'underline'}}>Continuer Votre Visite &#62;</p>
                         </Link>
                     </Alert>
                 }
