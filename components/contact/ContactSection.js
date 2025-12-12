@@ -86,7 +86,7 @@ export default function ContactBlock() {
 
     return(
         <div className={styles.container}>
-            <h2 className={styles.title}> Laissez Nous Un Message et Nous vous recontacterons</h2>
+            <h2 className={styles.title}> Laissez nous un message et nous vous recontacterons</h2>
             <Form noValidate validated={validated} onSubmit={sendMessage}>
                 <Form.Group className="mb-3">
                     <Form.Label className={styles.label}>Nom</Form.Label>
